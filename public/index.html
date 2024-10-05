@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/search-svgrepo-com.svg" type="image/x-icon">
+    <title>صحيح</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <button id="darkModeToggle">🌓</button>
+
+    <div class="container">
+        <header>
+            <h1>صحيح</h1>
+            <p class="subtitle">استكشف الأحاديث النبوية الصحيحة</p>
+        </header>
+
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="ابحث عن حديث..." required>
+            <button type="submit" id="searchButton">بحث</button>
+        </form>
+
+        <div class="filter-container">
+            <button class="filter-button active" data-filter="0">جميع الأحاديث</button>
+            <button class="filter-button" data-filter="1,2">الأحاديث الصحيحة</button>
+            <button class="filter-button" data-filter="3,4">الأحاديث الضعيفة</button>
+        </div>
+
+        <div id="loading" style="display: none;">
+            جاري البحث...
+        </div>
+
+        <div id="error" style="display: none;"></div>
+
+        <div id="results"></div>
+    </div>
+
+    <div id="sharhModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>شرح الحديث</h2>
+            <div id="sharhContent"></div>
+        </div>
+    </div>
+
+    <button id="scrollToTop" title="العودة إلى الأعلى">
+        <i class="fas fa-chevron-up"></i>↑
+    </button>
+
+    <footer>
+        <p class="developer-info">تم تطوير الموقع بواسطة <a href="https://github.com/farsabdraouf">فارس عبد الرؤوف</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

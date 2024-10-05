@@ -1,0 +1,21 @@
+{
+    "name": "صحيح",
+    "short_name": "صحيح",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1E5F74",
+    "theme_color": "#1E5F74",
+    "icons": [
+      {
+        "src": "img/search.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "img/search.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  

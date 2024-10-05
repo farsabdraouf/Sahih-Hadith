@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+:root {
+    --primary-color: #1e5f74cc;
+    --secondary-color: #1e5f74;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+    --card-bg: #fff;
+    --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+.dark-mode {
+    --primary-color: #90caf9;
+    --secondary-color: #42a5f5;
+    --text-color: #e0e0e0;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 6px rgba(255,255,255,0.1);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Amiri', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+#searchForm {
+    display: flex;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+    border-radius: 50px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+#searchForm:focus-within {
+    box-shadow: 0 0 0 3px var(--secondary-color);
+}
+#searchInput {
+    flex: 1;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+#searchButton {
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+#searchButton:hover {
+    background-color: var(--secondary-color);
+}
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+.filter-button {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: var(--transition);
+    font-size: 1.1rem;
+}
+.filter-button:hover, .filter-button.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+#results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.hadith-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+.hadith-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    border-color: var(--secondary-color);
+}
+.hadith-text {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+.hadith-info {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+.sharh-button {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: var(--transition);
+    font-size: 1.1rem;
+}
+.sharh-button:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+#darkModeToggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+#darkModeToggle:hover {
+    background-color: var(--secondary-color);
+    transform: rotate(15deg);
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: auto;
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 10% auto;
+    padding: 2.5rem;
+    border-radius: 15px;
+    max-width: 700px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    position: relative;
+}
+.close {
+    color: var(--text-color);
+    float: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.close:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+#loading, #error {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+}
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+}
+#scrollToTop:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+#scrollToTop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+.developer-info {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    #searchInput, #searchButton {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+    .filter-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+    .hadith-card {
+        padding: 1.5rem;
+    }
+    #darkModeToggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* لون بارز للرابط */
+    font-weight: bold; /* يخلي النص غليظ شوية */
+}
+
+a:hover {
+    color: #0056b3; /* يغير اللون عند التمرير */
+}
